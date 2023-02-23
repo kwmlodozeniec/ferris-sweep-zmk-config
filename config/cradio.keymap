@@ -24,7 +24,7 @@
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
+            quick-tap-ms = <150>;
             global-quick-tap;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
@@ -34,7 +34,7 @@
             label = "MO_LAYER_KEY";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <100>;
+            quick-tap-ms = <150>;
             flavor = "hold-preferred";
             bindings = <&mo>, <&kp>;
         };
