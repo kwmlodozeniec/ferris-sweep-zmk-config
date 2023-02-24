@@ -5,6 +5,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/ext_power.h>
 
 // Layers
 // 0 Default
@@ -16,6 +17,9 @@
 // Customer keycodes
 #define HYP LS(LC(LA(LGUI)))
 #define HYPER(key) LS(LC(LA(LG(key))))
+#define EX_PWR_ON &ext_power EP_ON
+#define EX_PWR_OFF &ext_power EP_OFF
+#define EX_PWR_TG &ext_power EP_TOG
 
 / {
     behaviors {
@@ -188,7 +192,7 @@
         //├10────────────┼11────────────┼12────────────┼13────────────┼14────────────┤   ├15────────────┼16────────────┼17────────────┼18────────────┼19────────────┤
            &bootloader    &none          &bt BT_PRV     &bt BT_NXT     &bt BT_CLR         &none          &kp C_VOL_DN   &kp C_MUTE     &kp C_VOL_UP   &bootloader
         //├20────────────┼21────────────┼22────────────┼23────────────┼24────────────┤   ├25────────────┼26────────────┼27────────────┼28────────────┼29────────────┤
-           &bt BT_SEL 4   &bt BT_SEL 3   &bt BT_SEL 2   &bt BT_SEL 1   &bt BT_SEL 0       &none          &none          &none          &none          &none
+           &bt BT_SEL 4   &bt BT_SEL 3   &bt BT_SEL 2   &bt BT_SEL 1   &bt BT_SEL 0       &none          EX_PWR_ON      EX_PWR_OFF     EX_PWR_TG      &none
         //╰──────────────┴──────────────┴──────────────┼30────────────┼31────────────┤   ├32────────────┼33────────────┼──────────────┴──────────────┴──────────────╯
                                                         &kp PSCRN      &kp LG(ESC)        &trans         &none
         //                                             ╰──────────────┴──────────────╯   ╰──────────────┴──────────────╯
