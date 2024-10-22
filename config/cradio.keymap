@@ -129,7 +129,7 @@
             timeout-ms = <50>;
             key-positions = <31 32>;
             bindings = <&tog 5>;
-            layers = <0 6>;
+            layers = <0 5>;
         };
         combo_toggle_graphite_layer {
             timeout-ms = <50>;
