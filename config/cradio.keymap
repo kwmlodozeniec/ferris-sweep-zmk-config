@@ -10,11 +10,11 @@
 // Layers
 // 0 Default
 // 1 Graphite
-// 2 Navigation
-// 3 Symbols
-// 4 Function keys and numpad
-// 5 System
-// 6 Simple Colemak layer without home row mods or layer switching
+// 2 Simple Colemak layer without home row mods or layer switching
+// 3 Navigation
+// 4 Symbols
+// 5 Function keys and numpad
+// 6 System
 
 // Customer keycodes
 #define HYP LS(LC(LA(LGUI)))
@@ -71,67 +71,67 @@
             timeout-ms = <50>;
             key-positions = <2 7>;
             bindings = <&kp ESC>;
-            layers = <0 1>;
+            layers = <0 1 2>;
         };
         combo_underscore {
             timeout-ms = <50>;
             key-positions = <23 26>;
             bindings = <&kp UNDER>;
-            layers = <0 1>;
+            layers = <0 1 2>;
         };
         combo_minus {
             timeout-ms = <50>;
             key-positions = <3 6>;
             bindings = <&kp MINUS>;
-            layers = <0 1>;
+            layers = <0 1 2>;
         };
         combo_nxt_sentence {
             timeout-ms = <50>;
             key-positions = <24 25>;
             bindings = <&nxt_sent>;
-            layers = <0 1>;
+            layers = <0 1 2>;
         };
         combo_left_parent {
             timeout-ms = <50>;
             key-positions = <12 13>;
             bindings = <&kp LPAR>;
-            layers = <0 1>;
+            layers = <0 1 2>;
         };
         combo_right_parent {
             timeout-ms = <50>;
             key-positions = <16 17>;
             bindings = <&kp RPAR>;
-            layers = <0 1>;
+            layers = <0 1 2>;
         };
         combo_left_bracket {
             timeout-ms = <50>;
             key-positions = <2 3>;
             bindings = <&kp LBKT>;
-            layers = <0 1>;
+            layers = <0 1 2>;
         };
         combo_right_bracket {
             timeout-ms = <50>;
             key-positions = <6 7>;
             bindings = <&kp RBKT>;
-            layers = <0 1>;
+            layers = <0 1 2>;
         };
         combo_left_brace {
             timeout-ms = <50>;
             key-positions = <22 23>;
             bindings = <&kp LBRC>;
-            layers = <0 1>;
+            layers = <0 1 2>;
         };
         combo_right_brace {
             timeout-ms = <50>;
             key-positions = <26 27>;
             bindings = <&kp RBRC>;
-            layers = <0 1>;
+            layers = <0 1 2>;
         };
         combo_toggle_simple_layer {
             timeout-ms = <50>;
             key-positions = <31 32>;
-            bindings = <&tog 6>;
-            layers = <0 6>;
+            bindings = <&tog 2>;
+            layers = <0 2>;
         };
         combo_toggle_graphite_layer {
             timeout-ms = <50>;
@@ -152,7 +152,7 @@
         //├20────────────┼21────────────┼22────────────┼23────────────┼24────────────┤   ├25────────────┼26────────────┼27────────────┼28────────────┼29────────────┤
            &kp Z          &kp X          &kp C          &kp D          &kp V              &kp K          &kp H          &kp COMMA      &kp DOT        &kp FSLH
         //╰──────────────┴──────────────┴──────────────┼30────────────┼31────────────┤   ├32────────────┼33────────────┼──────────────┴──────────────┴──────────────╯
-                                                        &mok 2 BSPC    &mok 4 TAB         &mok 5 ENTER   &mok 3 SPACE
+                                                        &mok 3 BSPC    &mok 5 TAB         &mok 6 ENTER   &mok 4 SPACE
         //                                             ╰──────────────┴──────────────╯   ╰──────────────┴──────────────╯
             >;
         };
@@ -165,6 +165,20 @@
            &hrm LGUI N    &hrm LALT R    &hrm LCTRL T   &hrm LSHIFT S  &hrm HYP G         &hrm HYP Y     &hrm LSHIFT H  &hrm LCTRL A   &hrm LALT E    &hrm LGUI I
         //├20────────────┼21────────────┼22────────────┼23────────────┼24────────────┤   ├25────────────┼26────────────┼27────────────┼28────────────┼29────────────┤
            &kp Q          &kp X          &kp M          &kp C          &kp V              &kp K          &kp P          &kp DOT        &kp MINUS      &kp FSLH
+        //╰──────────────┴──────────────┴──────────────┼30────────────┼31────────────┤   ├32────────────┼33────────────┼──────────────┴──────────────┴──────────────╯
+                                                        &trans         &trans             &trans         &trans
+        //                                             ╰──────────────┴──────────────╯   ╰──────────────┴──────────────╯
+            >;
+        };
+
+        simple {
+            bindings = <
+        //╭0─────────────┬1─────────────┬2─────────────┬3─────────────┬4─────────────╮   ╭5─────────────┬6─────────────┬7─────────────┬8─────────────┬9─────────────╮
+           &kp Q          &kp W          &kp F          &kp P          &kp B              &kp J          &kp L          &kp U          &kp Y          &kp SEMI
+        //├10────────────┼11────────────┼12────────────┼13────────────┼14────────────┤   ├15────────────┼16────────────┼17────────────┼18────────────┼19────────────┤
+           &kp A          &kp R          &kp S          &kp T          &kp G              &kp M          &kp N          &kp E          &kp I          &kp O
+        //├20────────────┼21────────────┼22────────────┼23────────────┼24────────────┤   ├25────────────┼26────────────┼27────────────┼28────────────┼29────────────┤
+           &kp Z          &kp X          &kp C          &kp D          &kp V              &kp K          &kp H          &kp COMMA      &kp DOT        &kp FSLH
         //╰──────────────┴──────────────┴──────────────┼30────────────┼31────────────┤   ├32────────────┼33────────────┼──────────────┴──────────────┴──────────────╯
                                                         &trans         &trans             &trans         &trans
         //                                             ╰──────────────┴──────────────╯   ╰──────────────┴──────────────╯
@@ -223,20 +237,6 @@
            &bt BT_SEL 4   &bt BT_SEL 3   &bt BT_SEL 2   &bt BT_SEL 1   &bt BT_SEL 0       &sk LALT       EX_PWR_ON      EX_PWR_OFF     EX_PWR_TG      &none
         //╰──────────────┴──────────────┴──────────────┼30────────────┼31────────────┤   ├32────────────┼33────────────┼──────────────┴──────────────┴──────────────╯
                                                         &kp PSCRN      &kp LG(ESC)        &trans         &none
-        //                                             ╰──────────────┴──────────────╯   ╰──────────────┴──────────────╯
-            >;
-        };
-
-        simple {
-            bindings = <
-        //╭0─────────────┬1─────────────┬2─────────────┬3─────────────┬4─────────────╮   ╭5─────────────┬6─────────────┬7─────────────┬8─────────────┬9─────────────╮
-           &kp Q          &kp W          &kp F          &kp P          &kp B              &kp J          &kp L          &kp U          &kp Y          &kp SEMI
-        //├10────────────┼11────────────┼12────────────┼13────────────┼14────────────┤   ├15────────────┼16────────────┼17────────────┼18────────────┼19────────────┤
-           &kp A          &kp R          &kp S          &kp T          &kp G              &kp M          &kp N          &kp E          &kp I          &kp O
-        //├20────────────┼21────────────┼22────────────┼23────────────┼24────────────┤   ├25────────────┼26────────────┼27────────────┼28────────────┼29────────────┤
-           &kp Z          &kp X          &kp C          &kp D          &kp V              &kp K          &kp H          &kp COMMA      &kp DOT        &kp FSLH
-        //╰──────────────┴──────────────┴──────────────┼30────────────┼31────────────┤   ├32────────────┼33────────────┼──────────────┴──────────────┴──────────────╯
-                                                        &kp BSPC       &kp TAB            &kp ENTER      &kp SPACE
         //                                             ╰──────────────┴──────────────╯   ╰──────────────┴──────────────╯
             >;
         };
