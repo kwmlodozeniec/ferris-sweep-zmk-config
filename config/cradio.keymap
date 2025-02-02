@@ -6,6 +6,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/pointing.h>
 
 // Layers
 // 0 Default
@@ -230,11 +231,11 @@
         system {
             bindings = <
         //╭0─────────────┬1─────────────┬2─────────────┬3─────────────┬4─────────────╮   ╭5─────────────┬6─────────────┬7─────────────┬8─────────────┬9─────────────╮
-           &sys_reset     &none          &out OUT_USB   &out OUT_BLE   &out OUT_TOG       &sk LCTRL      &kp C_PREV     &kp C_PLAY     &kp C_NEXT     &sys_reset
+           &bt BT_SEL 0   &mkp LCLK      &mmv MOVE_UP   &mkp RCLK     &mkp MCLK           &sk LCTRL      &kp C_PREV     &kp C_PLAY     &kp C_NEXT     &sys_reset
         //├10────────────┼11────────────┼12────────────┼13────────────┼14────────────┤   ├15────────────┼16────────────┼17────────────┼18────────────┼19────────────┤
-           &bootloader    &bt BT_CLR_ALL &bt BT_PRV     &bt BT_NXT     &bt BT_CLR         &sk LSHFT      &kp C_VOL_DN   &kp C_MUTE     &kp C_VOL_UP   &bootloader
+           &bt BT_SEL 1   &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_UP      &sk LSHFT      &kp C_VOL_DN   &kp C_MUTE     &kp C_VOL_UP   &bootloader
         //├20────────────┼21────────────┼22────────────┼23────────────┼24────────────┤   ├25────────────┼26────────────┼27────────────┼28────────────┼29────────────┤
-           &bt BT_SEL 4   &bt BT_SEL 3   &bt BT_SEL 2   &bt BT_SEL 1   &bt BT_SEL 0       &sk LALT       EX_PWR_ON      EX_PWR_OFF     EX_PWR_TG      &none
+           &bt BT_SEL 2   &bt BT_CLR     &mkp MB4       &mkp MB5      &msc SCRL_DOWN      &sk LALT       &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2      &none
         //╰──────────────┴──────────────┴──────────────┼30────────────┼31────────────┤   ├32────────────┼33────────────┼──────────────┴──────────────┴──────────────╯
                                                         &kp PSCRN      &kp LG(ESC)        &trans         &none
         //                                             ╰──────────────┴──────────────╯   ╰──────────────┴──────────────╯
