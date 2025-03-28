@@ -20,13 +20,16 @@
 // Customer keycodes
 #define HYP LS(LC(LA(LGUI)))
 #define HYPER(key) LS(LC(LA(LG(key))))
-#define EX_PWR_ON &ext_power EP_ON
-#define EX_PWR_OFF &ext_power EP_OFF
-#define EX_PWR_TG &ext_power EP_TOG
+
+// Key positions
+#define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24
+#define KEYS_R 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29
+#define THUMBS_L 30 31
+#define THUMBS_R 32 33
 
 / {
     behaviors {
-        hrm: homerow_mods {
+        lhrm: left_homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
@@ -35,6 +38,20 @@
             global-quick-tap;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_R THUMBS_L THUMBS_R>;
+            hold-trigger-on-release;
+        };
+        rhrm: right_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            global-quick-tap;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L THUMBS_L THUMBS_R>;
+            hold-trigger-on-release;
         };
         mok: mo_layer_key {
             compatible = "zmk,behavior-hold-tap";
@@ -149,7 +166,7 @@
         //╭0─────────────┬1─────────────┬2─────────────┬3─────────────┬4─────────────╮   ╭5─────────────┬6─────────────┬7─────────────┬8─────────────┬9─────────────╮
            &kp Q          &kp W          &kp F          &kp P          &kp B              &kp J          &kp L          &kp U          &kp Y          &kp SEMI
         //├10────────────┼11────────────┼12────────────┼13────────────┼14────────────┤   ├15────────────┼16────────────┼17────────────┼18────────────┼19────────────┤
-           &hrm LGUI A    &hrm LALT R    &hrm LCTRL S   &hrm LSHIFT T  &hrm HYP G         &hrm HYP M     &hrm LSHIFT N  &hrm LCTRL E   &hrm LALT I    &hrm LGUI O
+           &lhrm LGUI A   &lhrm LALT R   &lhrm LCTRL S  &lhrm LSHIFT T &lhrm HYP G        &rhrm HYP M    &rhrm LSHIFT N &rhrm LCTRL E  &rhrm LALT I   &rhrm LGUI O
         //├20────────────┼21────────────┼22────────────┼23────────────┼24────────────┤   ├25────────────┼26────────────┼27────────────┼28────────────┼29────────────┤
            &kp Z          &kp X          &kp C          &kp D          &kp V              &kp K          &kp H          &kp COMMA      &kp DOT        &kp FSLH
         //╰──────────────┴──────────────┴──────────────┼30────────────┼31────────────┤   ├32────────────┼33────────────┼──────────────┴──────────────┴──────────────╯
@@ -163,7 +180,7 @@
         //╭0─────────────┬1─────────────┬2─────────────┬3─────────────┬4─────────────╮   ╭5─────────────┬6─────────────┬7─────────────┬8─────────────┬9─────────────╮
            &kp B          &kp L          &kp D          &kp W          &kp Z              &kp COMMA      &kp F          &kp O          &kp U          &kp J
         //├10────────────┼11────────────┼12────────────┼13────────────┼14────────────┤   ├15────────────┼16────────────┼17────────────┼18────────────┼19────────────┤
-           &hrm LGUI N    &hrm LALT R    &hrm LCTRL T   &hrm LSHIFT S  &hrm HYP G         &hrm HYP Y     &hrm LSHIFT H  &hrm LCTRL A   &hrm LALT E    &hrm LGUI I
+           &lhrm LGUI N   &lhrm LALT R   &lhrm LCTRL T  &lhrm LSHIFT S &lhrm HYP G        &rhrm HYP Y    &rhrm LSHIFT H &rhrm LCTRL A  &rhrm LALT E   &rhrm LGUI I
         //├20────────────┼21────────────┼22────────────┼23────────────┼24────────────┤   ├25────────────┼26────────────┼27────────────┼28────────────┼29────────────┤
            &kp Q          &kp X          &kp M          &kp C          &kp V              &kp K          &kp P          &kp DOT        &kp MINUS      &kp FSLH
         //╰──────────────┴──────────────┴──────────────┼30────────────┼31────────────┤   ├32────────────┼33────────────┼──────────────┴──────────────┴──────────────╯
