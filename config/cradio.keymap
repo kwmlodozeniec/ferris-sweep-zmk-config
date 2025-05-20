@@ -73,14 +73,14 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_HOME";
             #binding-cells = <0>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <150>;
             bindings = <&mt LS(HOME) HOME>, <&kp LC(HOME)>;
         };
         td2: tap_dance_end {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_END";
             #binding-cells = <0>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <150>;
             bindings = <&mt LS(END) END>, <&kp LC(END)>;
         };
     };
