@@ -27,6 +27,11 @@
 #define THUMBS_L 30 31
 #define THUMBS_R 32 33
 
+// Make sticky keys lazy so they don't activate until the next key press
+&sk {
+    lazy;
+};
+
 / {
     behaviors {
         lhrm: left_homerow_mods {
