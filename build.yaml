@@ -1,8 +1,24 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: cradio_left
-  - board: nice_nano_v2
-    shield: cradio_right
-  - board: nice_nano_v2
     shield: settings_reset
+    artifact-name: settings_reset_nice_nano_v2
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+    artifact-name: settings_reset_xiao_ble
+  - board: seeeduino_xiao_ble
+    shield: codex_dongle
+    artifact-name: dongle_xiao_ble
+  - board: nice_nano_v2
+    shield: codex_left
+    artifact-name: dongle_left_nice_nano_v2
+  - board: nice_nano_v2
+    shield: codex_right
+    artifact-name: dongle_right_nice_nano_v2
+  - board: nice_nano_v2
+    shield: codex_left
+    artifact-name: left_nice_nano_v2
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+  - board: nice_nano_v2
+    shield: codex_right
+    artifact-name: right_nice_nano_v2

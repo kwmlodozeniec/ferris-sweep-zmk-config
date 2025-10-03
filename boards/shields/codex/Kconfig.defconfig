@@ -1,0 +1,31 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if SHIELD_CODEX_DONGLE
+
+config ZMK_KEYBOARD_NAME
+    default "Codex Gigas DGL"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_CODEX_LEFT || SHIELD_CODEX_RIGHT
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default n
+
+endif
+
+if SHIELD_CODEX_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Codex Gigas"
+
+endif
+
+if SHIELD_CODEX_LEFT || SHIELD_CODEX_RIGHT || SHIELD_CODEX_DONGLE
+config ZMK_SPLIT
+    default y
+endif
