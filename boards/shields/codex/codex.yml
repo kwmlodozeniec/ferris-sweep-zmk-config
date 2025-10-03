@@ -1,0 +1,14 @@
+file_format: "1"
+id: codex
+name: Codex/Sweep
+type: shield
+url: https://github.com/davidphilipbarr/Sweep
+requires:
+  - pro_micro
+  - seeeduino_xiao_ble
+features:
+  - keys
+siblings:
+  - codex_left
+  - codex_right
+  - codex_dongle
