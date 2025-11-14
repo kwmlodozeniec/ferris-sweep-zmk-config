@@ -10,12 +10,17 @@
 
 // Layers
 // 0 Default
-// 1 Graphite
-// 2 Simple Colemak layer without home row mods or layer switching
-// 3 Navigation
-// 4 Symbols
-// 5 Function keys and numpad
-// 6 System
+// 1 Simple Colemak layer without home row mods or layer switching
+// 2 Navigation
+// 3 Symbols
+// 4 Function keys and numpad
+// 5 System
+#define DEFAULT 0
+#define SIMPLE 1
+#define NAV 2
+#define SYM 3
+#define FN_NUM 4
+#define SYS 5
 
 // Customer keycodes
 #define HYP LS(LC(LA(LGUI)))
@@ -78,14 +83,14 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_HOME";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <200>;
             bindings = <&mt LS(HOME) HOME>, <&kp LC(HOME)>;
         };
         td2: tap_dance_end {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_END";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <200>;
             bindings = <&mt LS(END) END>, <&kp LC(END)>;
         };
     };
@@ -108,73 +113,73 @@
             timeout-ms = <50>;
             key-positions = <2 7>;
             bindings = <&kp ESC>;
-            layers = <0 1 2>;
+            layers = <DEFAULT SIMPLE>;
         };
         combo_underscore {
             timeout-ms = <50>;
             key-positions = <23 26>;
             bindings = <&kp UNDER>;
-            layers = <0 1 2>;
+            layers = <DEFAULT SIMPLE>;
         };
         combo_minus {
             timeout-ms = <50>;
             key-positions = <3 6>;
             bindings = <&kp MINUS>;
-            layers = <0 1 2>;
+            layers = <DEFAULT SIMPLE>;
         };
         combo_nxt_sentence {
             timeout-ms = <50>;
             key-positions = <24 25>;
             bindings = <&nxt_sent>;
-            layers = <0 1 2>;
+            layers = <DEFAULT SIMPLE>;
         };
         combo_left_parent {
             timeout-ms = <50>;
             key-positions = <12 13>;
             bindings = <&kp LPAR>;
-            layers = <0 1 2>;
+            layers = <DEFAULT SIMPLE>;
         };
         combo_right_parent {
             timeout-ms = <50>;
             key-positions = <16 17>;
             bindings = <&kp RPAR>;
-            layers = <0 1 2>;
+            layers = <DEFAULT SIMPLE>;
         };
         combo_left_bracket {
             timeout-ms = <50>;
             key-positions = <2 3>;
             bindings = <&kp LBKT>;
-            layers = <0 1 2>;
+            layers = <DEFAULT SIMPLE>;
         };
         combo_right_bracket {
             timeout-ms = <50>;
             key-positions = <6 7>;
             bindings = <&kp RBKT>;
-            layers = <0 1 2>;
+            layers = <DEFAULT SIMPLE>;
         };
         combo_left_brace {
             timeout-ms = <50>;
             key-positions = <22 23>;
             bindings = <&kp LBRC>;
-            layers = <0 1 2>;
+            layers = <DEFAULT SIMPLE>;
         };
         combo_right_brace {
             timeout-ms = <50>;
             key-positions = <26 27>;
             bindings = <&kp RBRC>;
-            layers = <0 1 2>;
+            layers = <DEFAULT SIMPLE>;
         };
         combo_toggle_simple_layer {
             timeout-ms = <50>;
-            key-positions = <31 32>;
-            bindings = <&tog 2>;
-            layers = <0 2>;
-        };
-        combo_toggle_graphite_layer {
-            timeout-ms = <50>;
             key-positions = <30 33>;
-            bindings = <&tog 1>;
-            layers = <0 1>;
+            bindings = <&tog SIMPLE>;
+            layers = <DEFAULT SIMPLE>;
+        };
+        combo_toggle_numpad_layer {
+            timeout-ms = <50>;
+            key-positions = <31 32>;
+            bindings = <&tog FN_NUM>;
+            layers = <DEFAULT FN_NUM>;
         };
     };
 
@@ -189,21 +194,7 @@
         //├20────────────┼21────────────┼22────────────┼23────────────┼24────────────┤   ├25────────────┼26────────────┼27────────────┼28────────────┼29────────────┤
            &kp Z          &kp X          &kp C          &kp D          &kp V              &kp K          &kp H          &kp COMMA      &kp DOT        &kp FSLH
         //╰──────────────┴──────────────┴──────────────┼30────────────┼31────────────┤   ├32────────────┼33────────────┼──────────────┴──────────────┴──────────────╯
-                                                        &mok 3 BSPC    &mok 5 TAB         &mok 6 ENTER   &mok 4 SPACE
-        //                                             ╰──────────────┴──────────────╯   ╰──────────────┴──────────────╯
-            >;
-        };
-
-        graphite {
-            bindings = <
-        //╭0─────────────┬1─────────────┬2─────────────┬3─────────────┬4─────────────╮   ╭5─────────────┬6─────────────┬7─────────────┬8─────────────┬9─────────────╮
-           &kp B          &kp L          &kp D          &kp W          &kp Z              &kp COMMA      &kp F          &kp O          &kp U          &kp J
-        //├10────────────┼11────────────┼12────────────┼13────────────┼14────────────┤   ├15────────────┼16────────────┼17────────────┼18────────────┼19────────────┤
-           &lhrm LGUI N   &lhrm LALT R   &lhrm LCTRL T  &lhrm LSHIFT S &lhrm HYP G        &rhrm HYP Y    &rhrm LSHIFT H &rhrm LCTRL A  &rhrm LALT E   &rhrm LGUI I
-        //├20────────────┼21────────────┼22────────────┼23────────────┼24────────────┤   ├25────────────┼26────────────┼27────────────┼28────────────┼29────────────┤
-           &kp Q          &kp X          &kp M          &kp C          &kp V              &kp K          &kp P          &kp DOT        &kp MINUS      &kp FSLH
-        //╰──────────────┴──────────────┴──────────────┼30────────────┼31────────────┤   ├32────────────┼33────────────┼──────────────┴──────────────┴──────────────╯
-                                                        &trans         &trans             &trans         &trans
+                                                        &mok NAV BSPC  &mok FN_NUM TAB    &mok SYS ENTER &mok SYM SPACE
         //                                             ╰──────────────┴──────────────╯   ╰──────────────┴──────────────╯
             >;
         };
